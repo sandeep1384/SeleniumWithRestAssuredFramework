@@ -21,6 +21,10 @@
     <log4j-api.version>2.25.1</log4j-api.version>
     <log4j-core.version>2.25.1</log4j-core.version>
     <jackson-databind.version>2.19.2</jackson-databind.version>
+    <maven-surefire-plugin.version>3.5.3</maven-surefire-plugin.version>
+    <java.source.version>24</java.source.version>
+    <java.target.version>24</java.target.version>
+    <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
 
   </properties>
 
@@ -108,4 +112,30 @@
     </dependency>
 
   </dependencies>
+  <build>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>${java.source.version}</source>
+          <target>${java.target.version}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+    </plugins>
+
+  </build>
 </project>

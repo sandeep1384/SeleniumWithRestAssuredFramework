@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Demo EverShop Automation">
+    <test name="E2E Automation">
+
+        <classes>
+            <class name="in.automation.E2ETest">
+                <methods>
+                    <include name="testLoginFlow">
+
+                    </include>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+
+</suite>
