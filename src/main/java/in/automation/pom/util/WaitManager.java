@@ -14,7 +14,7 @@ public class WaitManager {
     public static void waitForElementToBeLocated(WebDriver wd, By elementToBeLocated){
 
         FluentWait wait = new FluentWait(wd);
-        wait.withTimeout(Duration.ofSeconds(5))
+        wait.withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofSeconds(2))
                 .until(ExpectedConditions.visibilityOfElementLocated(elementToBeLocated));
 

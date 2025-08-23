@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -22,21 +23,22 @@ public class E2ETest {
     String emailId = "akhil.jain@podtest.in";
     String password = "Password";
     //String expectedUserName = "Akhil Jain";
-    String productName = "Nike court vision low";
+    String productName = "Nike react infinity run flyknit";
 
 
     @BeforeTest
     public void preStep(){
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-save-password-bubble");
-        options.addArguments("--disable-infobars");
-
-        options.setExperimentalOption("prefs", new HashMap<String, Object>(){{
-            put("credentials_enable_service", false);
-            put("profile.password_manager_enabled", false);
-        }});
-        wd = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--disable-save-password-bubble");
+//        options.addArguments("--disable-infobars");
+//
+//        options.setExperimentalOption("prefs", new HashMap<String, Object>(){{
+//            put("credentials_enable_service", false);
+//            put("profile.password_manager_enabled", false);
+       // }});
+        //wd = new ChromeDriver(options);
+        wd = new FirefoxDriver();
         wd.manage().window().maximize();
     }
 
