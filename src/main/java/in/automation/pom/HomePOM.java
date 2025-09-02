@@ -2,7 +2,9 @@ package in.automation.pom;
 
 import in.automation.pom.util.WaitManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,7 +19,7 @@ public class HomePOM extends BasePOM{
     private String productLink = "//div[@class='listing-tem']/div[contains(@class,'product-name')]/a/span[text()='$$$']";
 
     public By getProductLinkLocator(String productName){
-        String updatedProductName = productLink.replace("$$$","productName");
+        String updatedProductName = productLink.replace("$$$",productName);
         return By.xpath(updatedProductName);
 
     }
@@ -43,6 +45,9 @@ public class HomePOM extends BasePOM{
     }
 
     public ProductPOM clickProductName(String productName){
+//        WebElement element = wd.findElement(getProductLinkLocator(productName));
+//        ((JavascriptExecutor)wd).executeScript("arguments[0].scrollIntoView(true);", element);
+
         wd.findElement(getProductLinkLocator(productName)).click();
         return new ProductPOM(wd);
     }

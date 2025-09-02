@@ -20,10 +20,10 @@ public class E2ETest {
 
     WebDriver wd;
 
-    String emailId = "akhil.jain@podtest.in";
-    String password = "Password";
+    String emailId = "sandeep@yopmail.com";
+    String password = "Sdet@123";
     //String expectedUserName = "Akhil Jain";
-    String productName = "Nike react infinity run flyknit";
+    String productName = "Nike court vision low";
 
 
     @BeforeTest
@@ -38,7 +38,7 @@ public class E2ETest {
 //            put("profile.password_manager_enabled", false);
        // }});
         //wd = new ChromeDriver(options);
-        wd = new FirefoxDriver();
+        wd = new ChromeDriver();
         wd.manage().window().maximize();
     }
 
