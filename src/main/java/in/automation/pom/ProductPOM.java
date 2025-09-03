@@ -8,13 +8,13 @@ public class ProductPOM extends BasePOM {
 
     private By addToCartButton = By.xpath("//button/span[text()='ADD TO CART']");
 
-    private String itemSizeCB = "//ul[contains(@class,''variant-option-list')]/li/a[text()='$$$']";
+    private String itemSizeCB = "//ul[contains(@class,'variant-option-list')]/li/a[text()='$$$']";
 
-    private String itemColorCB = "//ul[contains(@class,''variant-option-list')]/li/a[text()='$$$']";
+    private String itemColorCB = "//ul[contains(@class,'variant-option-list')]/li/a[text()='$$$']";
 
     private By qtyTB = By.xpath("//input[@name='qty']");
 
-    private By viewCartButton = By.xpath("//a[@class='add-cart-popup-button' and contains(@text(),'VIEW CART')]");
+    private By viewCartButton = By.xpath("//a[@class='add-cart-popup-button' and contains(text(),'VIEW CART')]");
 
     public By getitemSizeCBLocator(String sizeName){
         String updateditemSizeCB =  itemSizeCB.replace("$$$",sizeName );
@@ -38,14 +38,14 @@ public class ProductPOM extends BasePOM {
     public ProductPOM selectItemSize(String itemSize){
         By ele = getitemSizeCBLocator(itemSize);
         wd.findElement(ele).click();
-        WaitManager.waitForElementToHaveAttributeWithSpecificValue(wd, wd.findElement(ele).findElement(By.xpath("//parent::li")),"class", "selected");
+        WaitManager.waitForElementToHaveAttributeWithSpecificValue(wd, wd.findElement(ele).findElement(By.xpath("parent::li")),"class", "selected");
         return this;
     }
 
     public ProductPOM selectItemColor(String itemColor){
         By ele = getitemColorCBLocator(itemColor);
         wd.findElement(ele).click();
-        WaitManager.waitForElementToHaveAttributeWithSpecificValue(wd, wd.findElement(ele).findElement(By.xpath("//parent::li")),"class", "selected");
+        WaitManager.waitForElementToHaveAttributeWithSpecificValue(wd, wd.findElement(ele).findElement(By.xpath("parent::li")),"class", "selected");
         return this;
     }
 

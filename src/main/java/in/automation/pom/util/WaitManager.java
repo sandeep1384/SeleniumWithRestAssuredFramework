@@ -20,10 +20,19 @@ public class WaitManager {
 
     }
 
+    public static void waitForElementVisibility(WebDriver wd, WebElement elementToBeLocated){
+
+        FluentWait wait = new FluentWait(wd);
+        wait.withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(2))
+                .until(ExpectedConditions.visibilityOf(elementToBeLocated));
+
+    }
+
     public static void waitForAlertToBePresent(WebDriver wd){
         FluentWait wait = new FluentWait(wd);
         wait.withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(1))
+                .pollingEvery(Duration.ofSeconds(2))
                 .until(ExpectedConditions.alertIsPresent());
 
     }
@@ -31,7 +40,7 @@ public class WaitManager {
     public static void waitForElementToHaveAttributeWithSpecificValue(WebDriver wd, WebElement webElementToLocate, String attributeName, String attributeValue){
         FluentWait wait = new FluentWait(wd);
         wait.withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(1))
+                .pollingEvery(Duration.ofSeconds(2))
                 .until(ExpectedConditions.attributeContains(webElementToLocate, attributeName, attributeValue));
 
     }

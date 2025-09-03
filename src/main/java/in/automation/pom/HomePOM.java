@@ -45,9 +45,6 @@ public class HomePOM extends BasePOM{
     }
 
     public ProductPOM clickProductName(String productName){
-//        WebElement element = wd.findElement(getProductLinkLocator(productName));
-//        ((JavascriptExecutor)wd).executeScript("arguments[0].scrollIntoView(true);", element);
-
         wd.findElement(getProductLinkLocator(productName)).click();
         return new ProductPOM(wd);
     }

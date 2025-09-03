@@ -22,24 +22,25 @@ public class E2ETest {
 
     String emailId = "sandeep@yopmail.com";
     String password = "Sdet@123";
-    //String expectedUserName = "Akhil Jain";
     String productName = "Nike court vision low";
+    String fullName = "Sandeep Patil";
+    String telePhone = "8888899999";
+    String address1 = "Mumbai Area";
+    String city = "Mumbai";
+    String country = "United States";
+    String province = "Alabama";
+    String postcode = "110000";
+    String shippingMethodName = "Standard Delivery";
+    String paymentMethodName="Cash On Delivery";
+
+
 
 
     @BeforeTest
     public void preStep(){
-
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--disable-save-password-bubble");
-//        options.addArguments("--disable-infobars");
-//
-//        options.setExperimentalOption("prefs", new HashMap<String, Object>(){{
-//            put("credentials_enable_service", false);
-//            put("profile.password_manager_enabled", false);
-       // }});
-        //wd = new ChromeDriver(options);
         wd = new ChromeDriver();
         wd.manage().window().maximize();
+        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @Test
@@ -49,8 +50,13 @@ public class E2ETest {
         login.get()
                 .fillUserName(emailId).fillPassword(password).clickSubmitButton()
                 .waitFor().clickProductName(productName)
-                .waitFor().selectItemSize("X").selectItemColor("Black").fillItemQty("1")
-                .clickAddToCartBtn().clickViewCartButton();
+                .waitFor().selectItemSize("X").waitFor().selectItemColor("Black").waitFor().fillItemQty("1")
+                .clickAddToCartBtn().waitFor().clickViewCartButton()
+                .clickCheckoutBtn()
+                .fillFullName(fullName).fillTelePhone(telePhone).fillAddress1(address1)
+                .fillCity(city).selectCountry(country).selectProvince(province)
+                .fillPostCode(postcode).selectShippingMethod(shippingMethodName).clickContinueToPayment()
+                .selectShippingMethod(paymentMethodName).clickPlaceOrder();
 
 
 
